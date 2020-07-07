@@ -16,8 +16,26 @@
 (defun make-action (name func)
   (cons name func))
 
+(defun get-action-name (action)
+  (print action)
+  (car action))
+
+(defun verify-action-name (action &optional actions)
+  (if (not actions)
+      (if (eql (get-action-name (car actions))   (get-action-name action))
+        nil
+       (verify-action-name action (cdr actions)))
+   t
+   )
+  
+  )
+
+
 (defun add-action (event action)
-  (setf *actions* (push (cons event action) *actions*) ))
+  (print action)
+  (if (verify-action-name action *actions*)
+      (setf *actions* (push (cons event action) *actions*) )
+      *actions*))
 
 
 (defun action-name (action)

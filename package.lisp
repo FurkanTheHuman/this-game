@@ -1,7 +1,5 @@
 ;;;; package.lisp
 
-(defpackage #:this-game
-  (:use #:cl #:this-game.db #:this-game.event))
 
 
 (defpackage #:this-game.db
@@ -20,3 +18,6 @@
    #:add-event))
 
 
+
+(defpackage #:this-game
+  (:use #:cl #:this-game.db #:this-game.event))

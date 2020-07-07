@@ -86,7 +86,9 @@
 (defun create-table (name structure )
   (if (verify-name name)
       (cons (cons name (cons  (list structure) (list) )) *default-db*)
-      (print "error table already exists"))
+      (progn (print "error table already exists")
+             *default-db*))
+  
   )
 
 (defun add-to (table data)
